@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final - Photo Capture App</title>
-    <link rel="stylesheet" href="../assets/css/styles.css"> 
+    <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="../../index.html">PhotoBooth</a> 
+                <a href="../../index.html">PhotoBooth</a>
             </div>
             <ul class="nav-links">
-                <li><a href="../../index.html">Home</a></li> 
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="photoCapture.html">Capture</a></li>
                 <li><a href="processing.html">Processing</a></li>
                 <li><a href="final.html">Final</a></li>
@@ -26,6 +26,30 @@
         <canvas id="finalCanvas"></canvas>
         <button id="downloadButton">Download Your Photo</button>
     </main>
-    <script src="../../assets/js/imageProcessing.js"></script> 
+    <script>
+        // Load the final image from localStorage
+        const finalCanvas = document.getElementById('finalCanvas');
+        const context = finalCanvas.getContext('2d');
+        const finalImageData = localStorage.getItem('finalImage');
+
+        if (finalImageData) {
+            const img = new Image();
+            img.src = finalImageData;
+
+            img.onload = () => {
+                finalCanvas.width = img.width;
+                finalCanvas.height = img.height;
+                context.drawImage(img, 0, 0);
+            };
+        }
+
+        // Allow the user to download the final image
+        document.getElementById('downloadButton').addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.download = 'photo-booth-image.png';
+            link.href = finalCanvas.toDataURL('image/png');
+            link.click();
+        });
+    </script>
 </body>
 </html>
