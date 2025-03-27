@@ -1,5 +1,3 @@
-// This file serves as the main JavaScript entry point. It initializes the application, handles navigation between pages, and manages global state.
-
 document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('startButton');
     const photoCaptureButton = document.getElementById('photoCaptureButton');
@@ -26,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (finalButton) {
         finalButton.addEventListener('click', () => {
-            // Logic to download the final image
+            // download the final image
         });
     }
 });
 
 function navigateToCapture() {
-    window.location.href = './photoCapture.html';
+    window.location.href = "src/pages/photoCapture.html";
 }
