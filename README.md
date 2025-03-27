@@ -27,7 +27,6 @@ This web application project is designed to provide users with a seamless experi
 
 ## File Structure
 ```
-web-app-project
 ├── src
 │   ├── assets
 │   │   ├── css
