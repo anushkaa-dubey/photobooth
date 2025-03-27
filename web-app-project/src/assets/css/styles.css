@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+button {
+    background: #35424a;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+.photo-capture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cameraPreview {
+    width: 100%;
+    max-width: 600px;
+    border: 2px solid #35424a;
+}
+
+.countdown {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.filter-option {
+    margin: 0 10px;
+}
+
+.processing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.final-image {
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+.download-button {
+    margin-top: 20px;
+}

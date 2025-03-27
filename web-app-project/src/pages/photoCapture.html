@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Capture</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <div class="header">
+        <!-- Include header template here -->
+        <div id="header-placeholder"></div>
+    </div>
+    <div class="photo-capture-container">
+        <h1>Photo Capture</h1>
+        <div class="camera-preview">
+            <video id="video" autoplay></video>
+            <button id="capture-button">Capture</button>
+            <div id="countdown-timer">3</div>
+        </div>
+        <div class="filter-selection">
+            <label for="filter">Select Filter:</label>
+            <select id="filter">
+                <option value="none">None</option>
+                <option value="grayscale">Grayscale</option>
+                <option value="sepia">Sepia</option>
+                <option value="invert">Invert</option>
+            </select>
+        </div>
+    </div>
+    <script src="../assets/js/camera.js"></script>
+    <script src="../assets/js/filters.js"></script>
+    <script src="../assets/js/imageProcessing.js"></script>
+    <script>
+        // Load header template
+        fetch('../templates/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
