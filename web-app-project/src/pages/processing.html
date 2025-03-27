@@ -8,14 +8,25 @@
 </head>
 <body>
     <header>
-        <!-- Include header template here -->
+        <nav class="navbar">
+            <div class="logo">
+                <a href="home.html">PhotoBooth</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="photoCapture.html">Capture</a></li>
+                <li><a href="processing.html">Processing</a></li>
+                <li><a href="final.html">Final</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <h1>Processing</h1>
+        <h2>Let's make your photos pop! 🎨</h2>
         <div id="capturedImages"></div>
-        <label for="backgroundColor">Choose a background color:</label>
+        <label for="backgroundColor">Pick a background color:</label>
         <input type="color" id="backgroundColor">
-        <button id="mergeButton">Merge</button>
+        <button id="mergeButton">Merge the Magic</button>
     </main>
     <script src="../assets/js/imageProcessing.js"></script>
 </body>

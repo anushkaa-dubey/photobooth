@@ -8,12 +8,23 @@
 </head>
 <body>
     <header>
-        <!-- Include header template here -->
+        <nav class="navbar">
+            <div class="logo">
+                <a href="home.html">PhotoBooth</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="photoCapture.html">Capture</a></li>
+                <li><a href="processing.html">Processing</a></li>
+                <li><a href="final.html">Final</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <h1>Final Image</h1>
+        <h1>Your Final Creation</h1>
+        <h2>Ready to share your masterpiece? 🌟</h2>
         <canvas id="finalCanvas"></canvas>
-        <button id="downloadButton">Download</button>
+        <button id="downloadButton">Download Your Photo</button>
     </main>
     <script src="../assets/js/imageProcessing.js"></script>
 </body>

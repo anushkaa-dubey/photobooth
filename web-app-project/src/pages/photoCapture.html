@@ -8,33 +8,46 @@
 </head>
 <body>
     <header>
-        <!-- Include header template here -->
-        <div id="header-placeholder"></div>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="home.html">PhotoBooth</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="photoCapture.html">Capture</a></li>
+                <li><a href="processing.html">Processing</a></li>
+                <li><a href="final.html">Final</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <h1>Photo Capture</h1>
+        <h2>Smile! You're about to create magic ✨</h2>
+        
+        <!-- Camera Preview -->
         <video id="cameraPreview" autoplay></video>
+        
+        <!-- Countdown Timer -->
         <div id="countdown">5</div>
-        <button id="captureButton">Capture</button>
+        
+        <!-- Capture Button -->
+        <button id="captureButton">Capture the Moment</button>
+        
+        <!-- Filter Selection -->
         <div id="filters">
-            <label for="filterSelect">Choose a filter:</label>
+            <label for="filterSelect">Add some flair:</label>
             <select id="filterSelect">
-                <option value="none">None</option>
+                <option value="none">No Filter</option>
                 <option value="grayscale">Grayscale</option>
                 <option value="sepia">Sepia</option>
             </select>
         </div>
     </main>
+    
+    <!-- Scripts -->
+    <script src="../assets/js/app.js"></script>
     <script src="../assets/js/camera.js"></script>
     <script src="../assets/js/filters.js"></script>
     <script src="../assets/js/imageProcessing.js"></script>
-    <script>
-        // Load header template
-        fetch('../templates/header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            });
-    </script>
 </body>
 </html>
