@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (startButton) {
         startButton.addEventListener('click', () => {
-            window.location.href = 'photoCapture.html';
+            navigateToCapture();
         });
     }
 
@@ -30,3 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+function navigateToCapture() {
+    window.location.href = './photoCapture.html';
+}

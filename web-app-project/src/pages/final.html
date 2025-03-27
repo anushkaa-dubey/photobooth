@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Image</title>
+    <title>Final - Photo Capture App</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
@@ -11,33 +11,10 @@
         <!-- Include header template here -->
     </header>
     <main>
-        <h1>Your Final Image</h1>
+        <h1>Final Image</h1>
         <canvas id="finalCanvas"></canvas>
         <button id="downloadButton">Download</button>
     </main>
     <script src="../assets/js/imageProcessing.js"></script>
-    <script src="../assets/js/app.js"></script>
-    <script>
-        // Assuming the merged image is processed and available in the imageProcessing.js
-        const finalCanvas = document.getElementById('finalCanvas');
-        const ctx = finalCanvas.getContext('2d');
-
-        // Function to render the final image
-        function renderFinalImage() {
-            // Logic to draw the final image on the canvas
-            // This should include the merged image and background color
-        }
-
-        // Function to handle download
-        document.getElementById('downloadButton').addEventListener('click', function() {
-            const link = document.createElement('a');
-            link.download = 'final-image.png';
-            link.href = finalCanvas.toDataURL();
-            link.click();
-        });
-
-        // Call the render function
-        renderFinalImage();
-    </script>
 </body>
 </html>

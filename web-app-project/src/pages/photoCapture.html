@@ -3,31 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Capture</title>
+    <title>Photo Capture - Photo Capture App</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
-    <div class="header">
+    <header>
         <!-- Include header template here -->
         <div id="header-placeholder"></div>
-    </div>
-    <div class="photo-capture-container">
+    </header>
+    <main>
         <h1>Photo Capture</h1>
-        <div class="camera-preview">
-            <video id="video" autoplay></video>
-            <button id="capture-button">Capture</button>
-            <div id="countdown-timer">3</div>
-        </div>
-        <div class="filter-selection">
-            <label for="filter">Select Filter:</label>
-            <select id="filter">
+        <video id="cameraPreview" autoplay></video>
+        <div id="countdown">5</div>
+        <button id="captureButton">Capture</button>
+        <div id="filters">
+            <label for="filterSelect">Choose a filter:</label>
+            <select id="filterSelect">
                 <option value="none">None</option>
                 <option value="grayscale">Grayscale</option>
                 <option value="sepia">Sepia</option>
-                <option value="invert">Invert</option>
             </select>
         </div>
-    </div>
+    </main>
     <script src="../assets/js/camera.js"></script>
     <script src="../assets/js/filters.js"></script>
     <script src="../assets/js/imageProcessing.js"></script>

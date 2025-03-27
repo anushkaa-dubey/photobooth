@@ -24,3 +24,18 @@ function downloadImage(dataUrl, filename) {
     link.click();
     document.body.removeChild(link);
 }
+
+const mergeButton = document.getElementById('mergeButton');
+const finalCanvas = document.getElementById('finalCanvas');
+const downloadButton = document.getElementById('downloadButton');
+
+mergeButton.addEventListener('click', () => {
+    // Logic to merge images with background color
+});
+
+downloadButton.addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.download = 'final-image.png';
+    link.href = finalCanvas.toDataURL();
+    link.click();
+});

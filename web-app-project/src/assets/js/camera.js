@@ -1,37 +1,28 @@
-const video = document.getElementById('video');
-const captureButton = document.getElementById('capture-button');
-const countdownDisplay = document.getElementById('countdown');
-let countdownTimer;
-let countdownValue = 3; // Countdown starts from 3 seconds
+const video = document.getElementById('cameraPreview');
+const countdown = document.getElementById('countdown');
+const captureButton = document.getElementById('captureButton');
 
-// Function to start the camera
-async function startCamera() {
-    try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => {
         video.srcObject = stream;
         video.play();
-    } catch (error) {
-        console.error("Error accessing the camera: ", error);
-    }
-}
+    })
+    .catch(err => {
+        console.error('Error accessing camera:', err);
+    });
 
-// Function to start the countdown timer
-function startCountdown() {
-    countdownValue = 3; // Reset countdown value
-    countdownDisplay.textContent = countdownValue;
-
-    countdownTimer = setInterval(() => {
-        countdownValue--;
-        countdownDisplay.textContent = countdownValue;
-
-        if (countdownValue < 0) {
-            clearInterval(countdownTimer);
+captureButton.addEventListener('click', () => {
+    let timer = 5;
+    const interval = setInterval(() => {
+        countdown.textContent = timer;
+        if (timer === 0) {
+            clearInterval(interval);
             captureImage();
         }
+        timer--;
     }, 1000);
-}
+});
 
-// Function to capture the image
 function captureImage() {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
@@ -44,11 +35,3 @@ function captureImage() {
     const imageDataUrl = canvas.toDataURL('image/png');
     console.log("Captured Image Data URL: ", imageDataUrl);
 }
-
-// Event listener for the capture button
-captureButton.addEventListener('click', () => {
-    startCountdown();
-});
-
-// Start the camera when the script loads
-startCamera();
