@@ -1,16 +1,21 @@
 const video = document.getElementById('cameraPreview');
 const countdown = document.getElementById('countdown');
-const capturedImages = [];
+const backgroundColorPicker = document.getElementById('backgroundColor');
+const downloadButton = document.getElementById('downloadButton');
+const finalCanvas = document.getElementById('finalCanvas');
+const context = finalCanvas.getContext('2d');
+
+let capturedImages = [];
 let captureCount = 0;
 
 // Access the user's camera
 navigator.mediaDevices.getUserMedia({ video: true })
     .then(stream => {
         video.srcObject = stream;
-        video.play();
     })
     .catch(err => {
         console.error('Error accessing camera:', err);
+        alert('Unable to access the camera. Please check your permissions.');
     });
 
 // Function to capture an image from the video stream
@@ -27,13 +32,13 @@ function captureImage() {
     capturedImages.push(canvas.toDataURL('image/png'));
     captureCount++;
 
-    // If 3 images are captured, process them
+    // If 3 images are captured, stop the process
     if (captureCount === 3) {
         processImages();
     }
 }
 
-// Function to start the countdown and capture images
+// Function to start the countdown and capture 3 images
 function startPhotoBooth() {
     let timer = 3; // Countdown timer
     countdown.textContent = timer;
@@ -54,16 +59,21 @@ function startPhotoBooth() {
     }, 1000);
 }
 
-// Function to combine the 3 images into a single image
+// Function to combine the 3 images into a single photo booth strip
 function processImages() {
-    const finalCanvas = document.createElement('canvas');
-    const context = finalCanvas.getContext('2d');
     const imageWidth = video.videoWidth;
     const imageHeight = video.videoHeight;
 
     // Set the canvas size to fit all 3 images vertically
     finalCanvas.width = imageWidth;
     finalCanvas.height = imageHeight * 3;
+
+    // Get the selected background color
+    const backgroundColor = backgroundColorPicker.value;
+
+    // Fill the canvas with the background color
+    context.fillStyle = backgroundColor;
+    context.fillRect(0, 0, finalCanvas.width, finalCanvas.height);
 
     // Draw each captured image onto the canvas
     capturedImages.forEach((imageData, index) => {
@@ -72,23 +82,20 @@ function processImages() {
 
         img.onload = () => {
             context.drawImage(img, 0, index * imageHeight, imageWidth, imageHeight);
-
-            // Once all images are drawn, navigate to the final page
-            if (index === 2) {
-                navigateToFinal(finalCanvas.toDataURL('image/png'));
-            }
         };
     });
+
+    // Show the download button after processing
+    downloadButton.style.display = 'block';
 }
 
-// Function to navigate to the final page with the combined image
-function navigateToFinal(finalImageData) {
-    // Save the final image data in localStorage (or pass it via query params)
-    localStorage.setItem('finalImage', finalImageData);
-
-    // Redirect to the final page
-    window.location.href = "final.html";
-}
+// Function to download the final photo booth image
+downloadButton.addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.download = 'photo-booth-image.png';
+    link.href = finalCanvas.toDataURL('image/png');
+    link.click();
+});
 
 // Start the photo booth when the capture button is clicked
 document.getElementById('captureButton').addEventListener('click', startPhotoBooth);

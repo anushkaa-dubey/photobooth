@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Capture - Photo Capture App</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Photo Capture - Photo Booth</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 <body>
     <header>
@@ -23,31 +23,14 @@
     <main>
         <h1>Photo Capture</h1>
         <h2>Smile! You're about to create magic ✨</h2>
-        
-        <!-- Camera Preview -->
         <video id="cameraPreview" autoplay></video>
-        
-        <!-- Countdown Timer -->
-        <div id="countdown">5</div>
-        
-        <!-- Capture Button -->
-        <button id="captureButton">Capture the Moment</button>
-        
-        <!-- Filter Selection -->
-        <div id="filters">
-            <label for="filterSelect">Add some flair:</label>
-            <select id="filterSelect">
-                <option value="none">No Filter</option>
-                <option value="grayscale">Grayscale</option>
-                <option value="sepia">Sepia</option>
-            </select>
-        </div>
+        <div id="countdown">3</div>
+        <button id="captureButton">Start Photo Booth</button>
+        <label for="backgroundColor">Pick a background color:</label>
+        <input type="color" id="backgroundColor" value="#ffffff">
+        <canvas id="finalCanvas" style="display: none;"></canvas>
+        <button id="downloadButton" style="display: none;">Download Your Photo</button>
     </main>
-    
-    <!-- Scripts -->
-    <script src="../assets/js/app.js"></script>
-    <script src="../assets/js/camera.js"></script>
-    <script src="../assets/js/filters.js"></script>
-    <script src="../assets/js/imageProcessing.js"></script>
+    <script src="../../assets/js/camera.js"></script>
 </body>
 </html>
