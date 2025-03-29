@@ -30,5 +30,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function navigateToCapture() {
-    window.location.href = "src/pages/photoCapture.html";
+    window.location.href = "../src/assets/pages/photoCapture.html";
 }
